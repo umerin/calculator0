@@ -19,48 +19,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Mainstoryboardに出ているボタンをタグで取得する
+        // 番号の0が使えないため、100番から109番までを0〜9に対応させることで、conflictを防いでいる
+        // なお、0番目のボタンが作られていなかったので、1〜9までしかfor文を回していない
+        for i in 1..<10 {
+            var btn: UIButton = self.view.viewWithTag(100 + i) as! UIButton
+            btn.addTarget(self, action: "selectedButtonAction:", forControlEvents: .TouchUpInside)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func select1(){
-        number = number * 10 + 1
+    
+    // 各ボタンの処理をここにまとめて書く
+    // senderにはactionが登録されたボタンが格納される
+    func selectedButtonAction(sender: UIButton) {
+        number = number * 10 + (sender.tag - 100)
         label.text = String(number)
     }
-    @IBAction func select2(){
-        number = number * 10 + 2
-        label.text = String(number)
-    }
-    @IBAction func select3(){
-        number = number * 10 + 3
-        label.text = String(number)
-    }
-    @IBAction func select4(){
-        number = number * 10 + 4
-        label.text = String(number)
-    }
-    @IBAction func select5(){
-        number = number * 10 + 5
-        label.text = String(number)
-    }
-    @IBAction func select6(){
-        number = number * 10 + 6
-        label.text = String(number)
-    }
-    @IBAction func select7(){
-        number = number * 10 + 7
-        label.text = String(number)
-    }
-    @IBAction func select8(){
-        number = number * 10 + 8
-        label.text = String(number)
-    }
-    @IBAction func select9(){
-        number = number * 10 + 9
-        label.text = String(number)
-    }
+    
+    // 演算子もタグで取得して、actinを起動時に追加してみましょう。
+    // ただし、関数は1つだけで、名前はoperationとしておきましょう。
+    // switch文を使うこと。
     @IBAction func plus(){
         label.text = String(0)
         
