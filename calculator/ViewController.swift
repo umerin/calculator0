@@ -25,65 +25,38 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func select1(){
-        number = number * 10 + 1
+    
+    
+    
+    //数字ボタン
+    @IBAction func SelectNumberButton(sender: AnyObject){
+        number = number * 10 + sender.tag - 100
         label.text = String(number)
     }
-    @IBAction func select2(){
-        number = number * 10 + 2
-        label.text = String(number)
-    }
-    @IBAction func select3(){
-        number = number * 10 + 3
-        label.text = String(number)
-    }
-    @IBAction func select4(){
-        number = number * 10 + 4
-        label.text = String(number)
-    }
-    @IBAction func select5(){
-        number = number * 10 + 5
-        label.text = String(number)
-    }
-    @IBAction func select6(){
-        number = number * 10 + 6
-        label.text = String(number)
-    }
-    @IBAction func select7(){
-        number = number * 10 + 7
-        label.text = String(number)
-    }
-    @IBAction func select8(){
-        number = number * 10 + 8
-        label.text = String(number)
-    }
-    @IBAction func select9(){
-        number = number * 10 + 9
-        label.text = String(number)
-    }
+    
     @IBAction func plus(){
-        label.text = String(0)
+        label.text = "+"
         
         operation = 1
         number1 = number
         number = 0
     }
     @IBAction func different(){
-        label.text = String(0)
+        label.text = "-"
         
         operation = 2
         number1 = number
         number = 0
     }
     @IBAction func kakeru(){
-        label.text = String(0)
+        label.text = "×"
         
         operation = 3
         number1 = number
         number = 0
     }
     @IBAction func waru(){
-        label.text = String(0)
+        label.text = "÷"
         
         operation = 4
         number1 = number
