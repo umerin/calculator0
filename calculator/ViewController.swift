@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         kakeruB.tag = 3
         waruB.tag = 4
         equalB.tag = 5
+        ACB.tag = 6
         
     }
 
@@ -57,22 +58,43 @@ class ViewController: UIViewController {
     
     @IBAction func otherB(sender :UIButton){
         switch sender.tag{
-        case 1:
+        case 1:if operation == 0{
             label.text = "+"
             operation = 1
             number1 = number
-        case 2:
+            number = 0
+            }
+        case 2:if operation == 0{
             label.text = "-"
             operation = 2
             number1 = number
-        case 3:
+            number = 0
+            }
+        case 3:if operation == 0{
             label.text = "×"
             operation = 3
             number1 = number
-        case 4:
+            number = 0
+            }
+        case 4:if operation == 0{
             label.text = "÷"
             operation = 4
             number1 = number
+            number = 0
+            }
+        case 5:if operation == 1 {
+            label.text = String(number + number1)
+        }else if operation == 2 {
+            label.text = String(number - number1)
+        }else if operation == 3 {
+            label.text = String(number * number1)
+        }else if operation == 4 {
+            label.text = String(number / number1)
+            }
+        case 6:number = 0
+            number1 = 0
+            operation = 0
+            label.text = String(0)
         
         default:
             break
